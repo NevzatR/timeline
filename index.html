@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proje Zaman Çizelgesi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+        }
+        
+        .container {
+            max-width: 1000px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            padding: 30px;
+            margin-top: 20px;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #fff;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #fff;
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            max-width: 800px;
+        }
+        
+        .timeline {
+            position: relative;
+            padding: 30px 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: #ff6b6b;
+            border-radius: 2px;
+        }
+        
+        .timeline-item {
+            width: 50%;
+            padding: 20px 40px;
+            position: relative;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            margin-right: auto;
+            border-left: 5px solid #4ecdc4;
+        }
+        
+        .timeline-item:nth-child(even) {
+            margin-left: auto;
+            border-right: 5px solid #ff6b6b;
+        }
+        
+        .timeline-item:nth-child(3n) {
+            border-color: #45b7d1;
+        }
+        
+        .timeline-date {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .timeline-date i {
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .timeline-content {
+            color: #555;
+            line-height: 1.6;
+        }
+        
+        .timeline-content h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        .timeline-marker {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #ff6b6b;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 0.8rem;
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-marker {
+            right: -10px;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-marker {
+            left: -10px;
+        }
+        
+        .status {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+        
+        .status.waiting {
+            background: #ffeaa7;
+            color: #d35400;
+        }
+        
+        .footer {
+            margin-top: 40px;
+            text-align: center;
+            color: white;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 30px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 20px;
+                margin-left: 0;
+                border-left: 5px solid #4ecdc4 !important;
+                border-right: none !important;
+            }
+            
+            .timeline-item:nth-child(odd) .timeline-marker,
+            .timeline-item:nth-child(even) .timeline-marker {
+                left: 20px;
+                right: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Proje Zaman Çizelgesi</h1>
+    <div class="container">
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-date"><i class="far fa-calendar-alt"></i> 04 Kasım 2025</div>
+                <div class="timeline-content">
+                    <h3>Kuyruksuz Mesajlar %100 Etkin</h3>
+                    <p>Sistemdeki tüm mesajların "kuyruksuz" (queue-less) mimariye tamamen geçişinin tamamlanması ve bu yöntemin %100 oranla kullanılmaya başlanması planlanıyor.</p>
+                    <span class="status waiting">Beklemede</span>
+                </div>
+                <div class="timeline-marker">1</div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-date"><i class="far fa-calendar-alt"></i> 11 Kasım 2025</div>
+                <div class="timeline-content">
+                    <h3>256 Sık Kullanılan Kural Canlı Ortamda İzleme</h3>
+                    <p>Belirlenen 256 adet sık kullanılan kuralın (rule) canlı (production) ortamda loglanarak performans ve davranışlarının takip edilmesi aşamasına geçilecek.</p>
+                    <span class="status waiting">Beklemede</span>
+                </div>
+                <div class="timeline-marker">2</div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-date"><i class="far fa-calendar-alt"></i> 18 Kasım 2025</div>
+                <div class="timeline-content">
+                    <h3>Gerçek Canlı Veri ile Çalışma</h3>
+                    <p>Sistemin, canlı ortamda her gün karşılaşılan gerçek veriler (real data) üzerinde aktif bir şekilde çalışmaya ve test edilmeye başlayacağı tarih.</p>
+                    <span class="status waiting">Beklemede</span>
+                </div>
+                <div class="timeline-marker">3</div>
+            </div>
+        </div>
+    </div>
+  
+</body>
+</html>
